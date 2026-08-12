@@ -3,7 +3,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from ml.data import process_data
 
-# Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -19,7 +18,7 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-    model = RandomForestClassifier()
+    model = RandomForestClassifier(n_estimators=300, max_depth=30, min_samples_leaf=2)
     model.fit(X_train,y_train)
     return model
 
@@ -62,6 +61,7 @@ def inference(model, X):
     """
     preds = model.predict(X)
     return preds
+
 
 def save_model(model, path):
     """ Serializes model to a file.

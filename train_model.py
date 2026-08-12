@@ -24,9 +24,7 @@ data = pd.read_csv("data/census.csv")
 
 
 # split the provided data to have a train dataset and a test dataset
-# Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(data, test_size=0.20, random_state=42)
-
 
 # DO NOT MODIFY
 cat_features = [
@@ -56,7 +54,6 @@ X_test, y_test, _, _ = process_data(
     encoder=encoder,
     lb=lb
 )
-
 
 # use the train_model function to train the model on the training dataset
 model = train_model(X_train, y_train)
