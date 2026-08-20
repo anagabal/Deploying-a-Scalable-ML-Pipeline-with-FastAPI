@@ -47,12 +47,6 @@ async def get_root():
 # create a POST on a different path that does model inference
 @app.post("/data/")
 async def post_inference(data: Data):
-    # DO NOT MODIFY: turn the Pydantic model into a dict.
-    ##data_dict = data.model_dump()
-    # DO NOT MODIFY: clean up the dict to turn it into a Pandas DataFrame.
-    # The data has names with hyphens and Python does not allow those as variable names.
-    # Here it uses the functionality of FastAPI/Pydantic/etc to deal with this.
-    ##data = {k.replace("_", "-"): [v] for k, v in data_dict.items()}
     data_dict = data.model_dump(by_alias=True)
 
     data = pd.DataFrame.from_dict({k: [v] for k, v in data_dict.items()})

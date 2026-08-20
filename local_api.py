@@ -3,7 +3,7 @@ import json
 import requests
 
 # send a GET using the URL http://127.0.0.1:8000
-r = requests.get("https://127.0.0.1:8000")
+r = requests.get("http://127.0.0.1:8000")
 
 # print the status code
 print(r.status_code)
@@ -30,7 +30,7 @@ data = {
 }
 
 # send a POST using the data above
-r = requests.post("https://127.0.0.1:8000/predict", json=data)
+r = requests.post("http://127.0.0.1:8000/data", json=data)
 
 # print the status code
 print(r.status_code)
